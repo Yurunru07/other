@@ -1,0 +1,24 @@
+<svg style="font-family:WenQuanYi Micro Hei,Microsoft YaHei,sans-serif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 320" role="img" aria-label="现有与目标数据通路"><defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#71817a"/></marker></defs>
+<text x="12" y="22" fill="#167e76" font-size="11" font-weight="bold">A / 权重路径：5 bit 展开存储 → 4 bit FP4 编码存储</text><text x="12" y="58" fill="#63716b" font-size="10">当前</text>
+<rect x="86" y="39" width="168" height="42" rx="3" fill="#d7644e"/><text x="170" y="57" text-anchor="middle" fill="white" font-size="10" font-weight="bold">FP4 → INT5 写入转换</text><text x="170" y="72" text-anchor="middle" fill="#fff2ed" font-size="8">写入口展开</text><path d="M260 60h32" stroke="#71817a" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="300" y="39" width="154" height="42" rx="3" fill="#466d83"/><text x="377" y="57" text-anchor="middle" fill="white" font-size="10" font-weight="bold">权重 SRAM</text><text x="377" y="72" text-anchor="middle" fill="#e2eef3" font-size="8">640 bit / 行</text><path d="M460 60h32" stroke="#71817a" stroke-width="2" marker-end="url(#arr)"/><rect x="500" y="39" width="140" height="42" rx="3" fill="#167e76"/><text x="570" y="65" text-anchor="middle" fill="white" font-size="10" font-weight="bold">PE 计算</text>
+<text x="12" y="117" fill="#63716b" font-size="10">建议</text><rect x="86" y="98" width="168" height="42" rx="3" fill="#bfe9d8"/><text x="170" y="116" text-anchor="middle" fill="#142322" font-size="10" font-weight="bold">FP4 编码写入</text><text x="170" y="131" text-anchor="middle" fill="#38534a" font-size="8">4 bit / 元素</text><path d="M260 119h32" stroke="#71817a" stroke-width="2" marker-end="url(#arr)"/><rect x="300" y="98" width="154" height="42" rx="3" fill="#466d83"/><text x="377" y="116" text-anchor="middle" fill="white" font-size="10" font-weight="bold">权重 SRAM</text><text x="377" y="131" text-anchor="middle" fill="#e2eef3" font-size="8">512 bit / 行</text><path d="M460 119h32" stroke="#71817a" stroke-width="2" marker-end="url(#arr)"/><rect x="500" y="98" width="140" height="42" rx="3" fill="#f1c75b"/><text x="570" y="116" text-anchor="middle" fill="#142322" font-size="10" font-weight="bold">读出后 FP4 → INT5</text><text x="570" y="131" text-anchor="middle" fill="#514719" font-size="8">128 元素 / 事务</text><path d="M646 119h32" stroke="#71817a" stroke-width="2" marker-end="url(#arr)"/><rect x="686" y="98" width="112" height="42" rx="3" fill="#167e76"/><text x="742" y="124" text-anchor="middle" fill="white" font-size="10" font-weight="bold">PE</text>
+<line x1="12" y1="161" x2="1108" y2="161" stroke="#d7dfd9"/>
+<text x="12" y="185" fill="#167e76" font-size="11" font-weight="bold">B / 输出路径：FP32 部分和存储 → INT14 部分和存储</text>
+<text x="12" y="218" fill="#63716b" font-size="10">当前</text>
+<rect x="86" y="200" width="168" height="38" rx="3" fill="#bfe9d8"/><text x="170" y="223" text-anchor="middle" fill="#142322" font-size="10" font-weight="bold">PE · 每块 INT14</text>
+<path d="M260 219h32" stroke="#71817a" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="300" y="200" width="154" height="38" rx="3" fill="#f1c75b"/><text x="377" y="223" text-anchor="middle" fill="#142322" font-size="10" font-weight="bold">scale + 转 FP32</text>
+<path d="M460 219h32" stroke="#71817a" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="500" y="200" width="140" height="38" rx="3" fill="#466d83"/><text x="570" y="223" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SRAM · 32 bit / 块</text>
+<path d="M646 219h32" stroke="#71817a" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="686" y="200" width="180" height="38" rx="3" fill="#d7644e"/><text x="776" y="223" text-anchor="middle" fill="white" font-size="10" font-weight="bold">读取 → 四块 FP32 归约</text>
+<text x="12" y="272" fill="#63716b" font-size="10">建议</text>
+<rect x="86" y="254" width="168" height="38" rx="3" fill="#bfe9d8"/><text x="170" y="277" text-anchor="middle" fill="#142322" font-size="10" font-weight="bold">PE · 每块 INT14</text>
+<path d="M260 273h32" stroke="#71817a" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="300" y="254" width="154" height="38" rx="3" fill="#466d83"/><text x="377" y="277" text-anchor="middle" fill="white" font-size="10" font-weight="bold">SRAM · 14 bit / 块</text>
+<path d="M460 273h32" stroke="#71817a" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="500" y="254" width="140" height="38" rx="3" fill="#f1c75b"/><text x="570" y="277" text-anchor="middle" fill="#142322" font-size="10" font-weight="bold">读取 → scale + FP32</text>
+<path d="M646 273h32" stroke="#71817a" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="686" y="254" width="180" height="38" rx="3" fill="#d7644e"/><text x="776" y="277" text-anchor="middle" fill="white" font-size="10" font-weight="bold">四块 FP32 归约</text>
+<text x="885" y="272" fill="#63716b" font-size="9">scale 与块同步保留</text></svg>
